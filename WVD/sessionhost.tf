@@ -1,8 +1,3 @@
-
-
-
-
-
 #AVD Session Hosts
 resource "azurerm_windows_virtual_machine" "avd-sessionhosts" {
   count                 = var.rdsh_count
@@ -41,7 +36,6 @@ resource "azurerm_windows_virtual_machine" "avd-sessionhosts" {
 #Domain join - AAD
 
 locals {
-  #registration_token = azurerm_virtual_desktop_host_pool.avd-hp.registration_info[0].token
   shutdown_command     = "shutdown -r -t 10"
   exit_code_hack       = "exit 0"
   commandtorun         = "New-Item -Path HKLM:/SOFTWARE/Microsoft/RDInfraAgent/AADJPrivate"
